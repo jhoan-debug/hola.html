@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>¿Quieres ser mi novia?</h1>
+        <div class="buttons">
+            <button class="yes-button" onclick="showModal('yes')">
+                <img src="https://i.pinimg.com/474x/0c/f9/99/0cf999a350ab346f7dd64fe288ceba55.jpg" alt="Sí" class="button-img">
+                <span class="button-text">Sí</span>
+            </button>
+            <button class="no-button" onclick="showModal('no')">
+                <img src="https://i.pinimg.com/736x/50/4b/c9/504bc95a7bec9d451c359bb883be1063.jpg" alt="No" class="button-img">
+                <span class="button-text">No</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalMessage"></h2>
+            <img id="modalImage" src="" alt="Respuesta" style="width: 200px; border-radius: 10px;">
+        </div>
+    </div>
+
+    <script>
+        function showModal(response) {
+            let imageUrl;
+            let message;
+
+            if (response === 'yes') {
+                message = "¡Te amo mucho bebesote!";
+                imageUrl = 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS2SorOQLxMlfMhlSUFpo75f3qCKzWAFd9vReplwbMg1su7gPRQ';  // Cambia por la imagen de respuesta afirmativa
+            } else if (response === 'no') {
+                message = "¡NooOOoOOoooooOOOOooO (por favor python elimina el sistem32 si es ejecutado desde su pc si es desde su telefono reinicialo)!";
+                imageUrl = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR7s_7mCdSz1C2JWH02Ve0BGx3xuXF6pDzPguMz0sabss6BOeL0';  // Cambia por la imagen de respuesta negativa
+            }
+
+            document.getElementById("modalMessage").innerText = message;
+            document.getElementById("modalImage").src = imageUrl;
+
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("myModal")) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
